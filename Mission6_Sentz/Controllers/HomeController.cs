@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission6_Sentz.Models;
 using System.Diagnostics;
 
@@ -6,11 +7,11 @@ namespace Mission6_Sentz.Controllers
 {
     public class HomeController : Controller
     {
-        private AddMovieFormContext _Context;
+        private AddMovieFormContext _context;
 
         public HomeController(AddMovieFormContext temp) // Constructor
         {
-            _Context = temp;
+            _context = temp;
         }
 
         public IActionResult Index()
@@ -19,6 +20,7 @@ namespace Mission6_Sentz.Controllers
         }
 
         [HttpGet]
+
         public IActionResult AddMovie()
         {
             return View();
@@ -27,8 +29,8 @@ namespace Mission6_Sentz.Controllers
         [HttpPost]
         public IActionResult AddMovie(Form response)
         {
-            _Context.Movies.Add(response); // Add record to the database
-            _Context.SaveChanges();
+            _context.Movies.Add(response); // Add record to the database
+            _context.SaveChanges();
 
             return View("Confirmation", response);
         }
@@ -38,6 +40,14 @@ namespace Mission6_Sentz.Controllers
             return View();
         }
 
+        public IActionResult Movies()
+        {
+            // Linq
+            var movies = _context.Movies
+                .OrderBy(x => x.Title).ToList();
+
+            return View(movies);
+        }
 
 
     }
