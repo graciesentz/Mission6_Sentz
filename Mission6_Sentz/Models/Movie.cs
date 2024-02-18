@@ -1,14 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission6_Sentz.Models
 {
-    public class Form
+    public class Movie
     {
+        [Key]
         [Required]
-        public int FormID { get; set; }
+        public int MovieId { get; set; }
 
+        [ForeignKey("CategoryId")]
         [Required]
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
+
+        [NotMapped]
+        public CategoryInst CategoryInst { get; set; }
 
         [Required]
         public string Title { get; set; }
@@ -24,6 +30,9 @@ namespace Mission6_Sentz.Models
 
         public bool? Edited { get; set; }
         public string? LentTo { get; set; }
+
+        [Required]
+        public bool CopiedToPlex {  get; set; }
         public string? Notes { get; set;}
 
     }

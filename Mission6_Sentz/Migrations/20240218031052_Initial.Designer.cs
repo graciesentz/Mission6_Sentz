@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mission6_Sentz.Models;
 
@@ -10,9 +11,11 @@ using Mission6_Sentz.Models;
 namespace Mission6_Sentz.Migrations
 {
     [DbContext(typeof(AddMovieFormContext))]
-    partial class AddMovieFormContextModelSnapshot : ModelSnapshot
+    [Migration("20240218031052_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
@@ -74,9 +77,9 @@ namespace Mission6_Sentz.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Mission6_Sentz.Models.Movie", b =>
+            modelBuilder.Entity("Mission6_Sentz.Models.Form", b =>
                 {
-                    b.Property<int>("MovieId")
+                    b.Property<int>("FormID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -110,7 +113,7 @@ namespace Mission6_Sentz.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("MovieId");
+                    b.HasKey("FormID");
 
                     b.ToTable("Movies");
                 });

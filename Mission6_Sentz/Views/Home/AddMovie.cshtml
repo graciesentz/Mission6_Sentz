@@ -1,10 +1,16 @@
-﻿@model Form
+﻿@model Movie
 
 <form method="post">
     <h1>Add a Movie</h1>
 
-    <label asp-for="Category">Category</label>
-    <input asp-for="Category"/>
+    <label asp-for="CategoryId">Category</label>
+    <select>
+        <option value="">Select a Category</option>
+        @foreach (CategoryInst c in ViewBag.Categories)
+        {
+            <option value="@c.Category">@c.Category"</option>
+        }
+    </select>
     <br />
     <label asp-for ="Title">Title</label>
     <input asp-for="Title"/>
@@ -31,6 +37,12 @@
     <br />
     <label asp-for="LentTo">Lent To</label>
     <input asp-for="LentTo" />
+    <br />
+    <label asp-for="CopiedToPlex">Copied To Plex</label>
+    <select asp-for="CopiedToPlex">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
     <br />
     <label asp-for="Notes">Notes</label>
     <input asp-for="Notes" maxlength="25" />

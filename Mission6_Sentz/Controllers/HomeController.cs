@@ -23,11 +23,14 @@ namespace Mission6_Sentz.Controllers
 
         public IActionResult AddMovie()
         {
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.Category).ToList();
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult AddMovie(Form response)
+        public IActionResult AddMovie(Movie response)
         {
             _context.Movies.Add(response); // Add record to the database
             _context.SaveChanges();
@@ -40,7 +43,7 @@ namespace Mission6_Sentz.Controllers
             return View();
         }
 
-        public IActionResult Movies()
+        public IActionResult AllMovies()
         {
             // Linq
             var movies = _context.Movies

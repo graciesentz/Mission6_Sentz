@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mission6_Sentz.Models;
 
@@ -10,9 +11,11 @@ using Mission6_Sentz.Models;
 namespace Mission6_Sentz.Migrations
 {
     [DbContext(typeof(AddMovieFormContext))]
-    partial class AddMovieFormContextModelSnapshot : ModelSnapshot
+    [Migration("20240218031726_2")]
+    partial class _2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
