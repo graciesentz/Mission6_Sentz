@@ -24,7 +24,7 @@ namespace Mission6_Sentz.Controllers
         public IActionResult AddMovie()
         {
             ViewBag.Categories = _context.Categories
-                .OrderBy(x => x.Category).ToList();
+                .OrderBy(x => x.CategoryName).ToList();
 
             return View();
         }

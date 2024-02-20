@@ -9,12 +9,13 @@ namespace Mission6_Sentz.Models
         [Required]
         public int MovieId { get; set; }
 
+
         [ForeignKey("CategoryId")]
         [Required]
         public int CategoryId { get; set; }
 
         [NotMapped]
-        public CategoryInst CategoryInst { get; set; }
+        public Category Category { get; set; }
 
         [Required]
         public string Title { get; set; }
@@ -22,13 +23,12 @@ namespace Mission6_Sentz.Models
         [Required]
         public int Year { get; set; }
 
-        [Required]
-        public string Director { get; set; }
+        public string? Director { get; set; }
+
+        public string? Rating { get; set; }
 
         [Required]
-        public string Rating { get; set; }
-
-        public bool? Edited { get; set; }
+        public bool Edited { get; set; }
         public string? LentTo { get; set; }
 
         [Required]

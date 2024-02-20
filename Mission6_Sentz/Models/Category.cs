@@ -2,10 +2,10 @@
 
 namespace Mission6_Sentz.Models
 {
-    public class CategoryInst
+    public class Category
     {
         [Key]
         public int CategoryId { get; set; }
-        public string Category {  get; set; }
+        public string CategoryName {  get; set; }
     }
 }
