@@ -46,8 +46,8 @@ namespace Mission6_Sentz.Controllers
         public IActionResult AllMovies()
         {
             // Linq
-            var movies = _context.Movies
-                .OrderBy(x => x.Title).ToList();
+            var movies = _context.Movies.Include("Category")
+                .ToList();
 
             return View(movies);
         }

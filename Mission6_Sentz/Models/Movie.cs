@@ -11,10 +11,7 @@ namespace Mission6_Sentz.Models
 
 
         [ForeignKey("CategoryId")]
-        [Required]
         public int CategoryId { get; set; }
-
-        [NotMapped]
         public Category Category { get; set; }
 
         [Required]
